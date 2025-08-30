@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OculusTrack - AI Eye Tracker</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        button { transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out; }
+        button:active { transform: scale(0.95); }
+    </style>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
+    <main class="w-full max-w-md mx-auto bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl p-8 space-y-6">
+        <div class="text-center">
+            <h1 class="text-4xl font-bold text-slate-900">OculusTrack</h1>
+            <p class="text-slate-500 mt-1">AI-Powered Eye Tracking</p>
+        </div>
+        <div class="relative w-full overflow-hidden rounded-2xl border-2 border-slate-200 shadow-inner bg-slate-100">
+            <video id="video" class="w-full h-auto" autoplay muted playsinline style="transform: scaleX(-1);"></video>
+            <canvas id="overlay" class="absolute top-0 left-0"></canvas> 
+        </div>
+        <div class="bg-slate-50 rounded-2xl p-5 text-center space-y-2">
+            <p id="status" class="text-slate-600 font-medium text-lg h-7 transition-colors">Initializing...</p>
+            <div>
+                <span id="time" class="text-6xl font-extrabold text-slate-800 tracking-tight">0</span>
+                <span class="text-xl font-medium text-slate-500 ml-1">seconds</span>
+            </div>
+        </div>
+        <div class="pt-2">
+            <button id="toggle-tracking-btn" disabled class="w-full flex items-center justify-center gap-3 bg-slate-800 text-white font-semibold text-lg py-4 rounded-2xl shadow-lg hover:bg-slate-700 disabled:bg-slate-400 disabled:cursor-not-allowed">
+                <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                     <path stroke-linecap="round" stroke-linejoin="round" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span id="btn-text">Loading...</span>
+            </button>
+        </div>
+    </main>
+</body>
+</html>
