@@ -7,9 +7,7 @@ An AI-powered web application to track user screen time by analyzing eye gaze wi
 This demo shows the real-time eye tracking and focus detection in action.
 
 <p align="center">
-  <video src="https://github.com/mohammadhasanii/OculusTrack/blob/master/demo.mp4" width="700" controls autoplay loop muted>
-     Your browser does not support the video tag.
-  </video>
+  <img src="https://raw.githubusercontent.com/mohammadhasanii/OculusTrack/master/demo.gif" alt="OculusTrack Demo" width="700">
 </p>
 
 ---
